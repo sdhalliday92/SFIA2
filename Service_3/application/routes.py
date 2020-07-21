@@ -2,7 +2,7 @@ from application import app
 import random
 
 
-@app.route('/randomphrase', methods=['GET'])
+@app.route('/randomname', methods=['GET'])
 def ending():
 
 	list = ['Machine','Skull','Blaze','King','Storm','Cobra','Thing']
