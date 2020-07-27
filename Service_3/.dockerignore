@@ -1,0 +1,24 @@
+# Ignore venv folder
+
+venv
+
+# Ignore __pychache__
+
+*/__pychache__
+
+# Ignore .md files
+
+*.md
+
+# Ignore git ignnore file
+
+.gitignore
+
+# Ignore docker ignore file
+
+.dockerignore
+
+# Ignore .git folder
+
+.git
+
