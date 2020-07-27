@@ -2,7 +2,7 @@ from application import app
 import random
 
 
-@app.route('/randomname', methods=['GET'])
+@app.route('/name1', methods=['GET'])
 def beginning():
 
 	list = ['Captain','Super','Phantom','Omega','Shadow','Silver','Doctor']
