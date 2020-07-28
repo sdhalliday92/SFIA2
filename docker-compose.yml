@@ -4,6 +4,8 @@ services:
 
     service_1:
         image: sdhalliday92/service_1
+        ports: 
+            - 5000:5000
         networks: 
             - sfia2_network
         depends_on: 
