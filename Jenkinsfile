@@ -1,9 +1,12 @@
 pipeline {
     agent any 
     stages {
-        stage('Deploy') { 
+        stage('Build Images') { 
             steps {
-                sh 'echo Hello' 
+                sh 'docker build -t sdhalliday92/service_1 ./Service_1'
+                sh 'docker build -t sdhalliday92/service_2 ./Service_2'
+                sh 'docker build -t sdhalliday92/service_3 ./Service_3'
+                sh 'docker build -t sdhalliday92/service_4 ./Service_4'
             }
         }
     }
