@@ -3,6 +3,7 @@ version: "3.7"
 services: 
 
     service_1:
+        build: Service_1
         image: sdhalliday92/service_1
         ports: 
             - 5000:5000
@@ -16,6 +17,7 @@ services:
             replicas: 2
 
     service_2:
+        build: Service_2
         image: sdhalliday92/service_2
         networks: 
             - sfia2_network
@@ -23,6 +25,7 @@ services:
             replicas: 2
     
     service_3:
+        build: Service_3
         image: sdhalliday92/service_3
         networks: 
             - sfia2_network
@@ -30,6 +33,7 @@ services:
             replicas: 2
 
     service_4:
+        build: Service_4
         image: sdhalliday92/service_4
         networks: 
             - sfia2_network
