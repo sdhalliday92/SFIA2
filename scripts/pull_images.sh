@@ -8,5 +8,5 @@ docker service update --image sdhalliday92/service_3:latest --force sfia2_servic
 
 docker service update --image sdhalliday92/service_4:latest --force sfia2_service_4
 
-docker rmi $(docker images -f "dangling=true" -q) -f
+docker system prune -f
 
