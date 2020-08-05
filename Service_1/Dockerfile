@@ -1,5 +1,4 @@
-FROM python:latest
-
+FROM python:alpine3.12
 RUN mkdir -p /opt/sfia2
 
 COPY . /opt/sfia2
