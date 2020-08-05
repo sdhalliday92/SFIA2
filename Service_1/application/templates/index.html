@@ -11,11 +11,20 @@
             </h1>
             <br>
             <p>
-                {{ sentence }}
+                {{ heroname }}
             </p>
             <br>
             <button style="background-color:Tomato;"onclick="window.location.reload();">
                 Generate Name
             </button>
+            <br>
+            {% for superhero in superhero %}
+            <table>
+            <tr>
+                <td>{{ superhero.name1 }}</td> 
+                <td>{{ superhero.name2 }}</td>
+            </tr>
+            </table>
+            {% endfor %}
         </body>
     </html>    
