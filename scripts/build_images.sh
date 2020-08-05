@@ -2,6 +2,8 @@
 
 echo $(docker images)
 
+docker rmi $(docker images -qa)
+
 docker build --no-cache -t sdhalliday92/service_1 ./Service_1
 docker push sdhalliday92/service_1:latest
 
