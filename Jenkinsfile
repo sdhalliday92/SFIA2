@@ -17,7 +17,7 @@ pipeline {
                 sh './scripts/deploy_stack.sh'
             }
         }
-        stage('Clean') {
+        stage('Cleanup') {
             steps {
                 sh './scripts/cleanup.sh'
             }
