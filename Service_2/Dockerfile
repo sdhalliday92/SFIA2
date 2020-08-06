@@ -1,4 +1,4 @@
-FROM python:alpine3.12
+FROM python:latest
 
 RUN mkdir -p /opt/sfia2
 
