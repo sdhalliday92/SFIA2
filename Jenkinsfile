@@ -7,6 +7,7 @@ pipeline {
         stage('Build Images') {
 
                 steps {
+                    sh 'chmod +x ./scripts/*.sh'
                     sh './scripts/build_images.sh'
                 }
         }
@@ -14,7 +15,6 @@ pipeline {
         stage('Run Playbook') {
 
                 steps {
-                    sh 'chmod +x ./scripts/*.sh'
                     sh './scripts/ansible.sh'
                 }
         }
