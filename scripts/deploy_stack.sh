@@ -1,5 +1,7 @@
 #!/bin/bash
 
-source .bashrc
+source ~/.bashrc
+
+pwd
 
 docker stack deploy --compose-file docker-compose.yml sfia2
