@@ -3,7 +3,14 @@ pipeline {
     agent any
 
     stages {
-        
+
+        stage('Build Images') {
+
+                steps {
+                    sh './scripts/build_images.sh'
+                }
+        }
+
         stage('Run Playbook') {
 
                 steps {
@@ -12,49 +19,22 @@ pipeline {
                 }
         }
 
-        stage('Build Images') {
-
-                steps {
-                    
-                    
-                    sh './scripts/build_images.sh'
-                    
-                }
-            
-        }
-
         // stage('Start Swarm') {
-
         //         steps {
-
         //             sh './scripts/swarm_setup.sh'
-                
         //         }
-
         // }
 
-        
-
         stage('Deploy Stack') {
-
                 steps {
-
                     sh './scripts/deploy_stack.sh'
-
-
                 }
         }
 
-        stage('Clean'){
-
+        stage('Cleanup'){
                 steps {
-
-                    sh './scripts/clean.sh'
-                    
+                    sh './scripts/cleanup.sh'
                 }
-
         }
-
     }
-
 }
