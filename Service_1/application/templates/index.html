@@ -17,5 +17,10 @@
             <button style="background-color:Tomato;"onclick="window.location.reload();">
                 Generate Name
             </button>
+            {% for entry in superheroes %}
+            <div>
+            <p><b>Superhero Name: </b> {{ entry.name1 }} + "" + {{ entry.name2 }}</p>
+            </div>
+            {% endfor %}
         </body>
     </html>    
