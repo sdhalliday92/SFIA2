@@ -41,7 +41,7 @@ class superhero(db.Model):
 
 @app.route('/', methods=['GET', 'POST'])
 def home():
-    response = requests.get('http://localhost:5003/generator')
+    response = requests.get('http://service_4:5003/generator')
     print(response)
     heroname = response.text
     superhero_data = superhero.query.all()
