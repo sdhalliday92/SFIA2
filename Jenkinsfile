@@ -1,26 +1,60 @@
 pipeline {
+
     agent any
+
     stages {
+        
+        stage('Run Playbook') {
+
+                steps {
+                    sh 'chmod +x ./scripts/*.sh'
+                    sh './scripts/ansible.sh'
+                }
+        }
+
         stage('Build Images') {
-            steps {
-                sh 'chmod +x ./scripts/*.sh'
-                sh './scripts/build_images.sh'
-            }
+
+                steps {
+                    
+                    
+                    sh './scripts/build_images.sh'
+                    
+                }
+            
         }
-                stage('Start Swarm') {
-            steps {
-                sh './scripts/swarm_setup.sh'
-            }
-        }
+
+        // stage('Start Swarm') {
+
+        //         steps {
+
+        //             sh './scripts/swarm_setup.sh'
+                
+        //         }
+
+        // }
+
+        
+
         stage('Deploy Stack') {
-            steps {
-                sh './scripts/deploy_stack.sh'
-            }
+
+                steps {
+
+                    sh './scripts/deploy_stack.sh'
+
+
+                }
         }
-        stage('Cleanup') {
-            steps {
-                sh './scripts/cleanup.sh'
-            }
+
+        stage('Clean'){
+
+                steps {
+
+                    sh './scripts/clean.sh'
+                    
+                }
+
         }
+
     }
+
 }
