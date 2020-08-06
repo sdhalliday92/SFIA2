@@ -1,6 +1,6 @@
 #!/bin/bash
 
-source ~/.bashrc
+source /home/jenkins/.bashrc
 
 pwd
 
