@@ -4,19 +4,19 @@ QA SFIA2 Project
 
 ## Table of Contents
 
-**Project Brief**
+- **Project Brief**
 
-**Planning**
+- **Planning**
 
-**Risk Assessment**
+- **Risk Assessment**
 
-**Project Architecture**
+- **Project Architecture**
 
-**Final Application**
+- **Final Application**
 
-**Deployment**
+- **Deployment**
 
-**Retrospective**
+- **Retrospective**
 
 ## Project Brief
 
