@@ -1,12 +1,12 @@
 FROM python:latest
 
-RUN mkdir -p /opt/sfia2
+WORKDIR /opt/app
 
-COPY . /opt/sfia2
-
-WORKDIR /opt/sfia2
+COPY requirements.txt .
 
 RUN pip3 install -r requirements.txt
+
+COPY . .
 
 ENTRYPOINT ["python3", "app.py"]
 
