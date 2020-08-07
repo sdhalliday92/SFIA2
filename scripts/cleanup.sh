@@ -5,4 +5,4 @@ docker service update --image sdhalliday92/service_2:latest --force sfia2_servic
 docker service update --image sdhalliday92/service_3:latest --force sfia2_service_3
 docker service update --image sdhalliday92/service_4:latest --force sfia2_service_4
 
-docker system prune -f
+#docker system prune -f
