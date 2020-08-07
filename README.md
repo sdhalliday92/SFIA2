@@ -4,39 +4,19 @@ QA SFIA2 Project
 
 ## Table of Contents
 
-Project Brief
-   * Proposal
+**Project Brief**
 
-Planning
-   * Initial Trello Board
-   * Sprint 1
-   * Sprint 1 Rolling Changes
-   * Sprint 1 (end) / Sprint 2 (Start)
-   * Sprint 2 Rolling Changes
-   * Sprint 2 (end)
-   * Issues during the 2 Sprints
+**Planning**
 
-Risk Assessment
-   * Initial Risk Assessment and Matrix
-   * Final Updates to Risk Assessment and Matrix
+**Risk Assessment**
 
-Project Architecture
-   * Entity Relationship Diagrams
-   * Docker Swarm / UI Architecture
-   * Deployment Pipeline
-   * Toolchain
+**Project Architecture**
 
-Final Application
+**Final Application**
 
-Deployment
-   * Technology Used
+**Deployment**
 
-Retrospective
-   * What Went Well
-   * Future Improvements
-
-Author
-
+**Retrospective**
 
 ## Project Brief
 
