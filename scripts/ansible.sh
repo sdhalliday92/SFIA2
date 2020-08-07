@@ -1,3 +1,3 @@
 #!/bin/bash
 
-ansible-playbook -i inventory.cfg playbook.yml
+/home/jenkins/.local/bin/ansible-playbook -i inventory.cfg playbook.yml
