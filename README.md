@@ -1,6 +1,6 @@
 # README - Superhero Name Generator
 
-For SFIA project 2  
+QA SFIA2 Project
 
 ## Table of Contents
 
@@ -55,7 +55,7 @@ The main goal of this project was to utilise a number of different technologies 
 
 My proposal was to create a Superhero Name Generator. My inital proposal includes 4 services as follows:
 
-+ Service 1: This will be the front end of my application, and Flask will be used to create this. My database will store the resulting Superhero Name that is generated from Service 4 in a MySQL Database on GCP. Only a single index.html page will be used to display the information. Options will be present on Service 1 to enable dual implementation for Services 2, 3 and 4.
++ Service 1: This will be the front end of my application, and Flask will be used to create this. My database will store the resulting Superhero Name that is generated from Service 4 in a MySQL Database on GCP. Only a single index.html page will be used to display the information.
 
 + Service 2: Generates a random First Name to return to Service 4.
 
@@ -71,11 +71,11 @@ Shown above is an initial Wireframe diagram of my Flask Application (Service 1)
 
 ### Initial Trello Board
 
-Trello, a web-based Kanban board, was used to plan the project while implementing Agile methodology, such as specifying a product and sprint backlog. The project was to be split into 2 sprints 
+Trello, a web-based Kanban board, was used to plan the project while implementing AGILE methodology, such as specifying a product and sprint backlog. The project was to be split into 2 sprints. I utilised MosCoW Prioritisation to give each requirement of the project an importance, so that I can use this to sort the order I should prioritise completing them in. I used a colour labelling method to do this and you can see an example of this below for my Initial Trello Board:
 
-I utilised MosCoW Prioritisation to give each requirement of the project an importance, so that I can use this to sort the order I should prioritise completing them in. I used a colour labelling method to do this and you can see an example of this below for my Initial Trello Board:
+![Initial Trello Board ](https://i.imgur.com/WXKOUzu.png) 
 
-![Initial Trello Board ](/images/initTrel.png) ![Labels](/images/MoSCoWLabels.png)
+![Labels](https://i.imgur.com/8yfZvZX.png)
 
 ### Sprint 1 
 
