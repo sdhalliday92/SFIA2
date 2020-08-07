@@ -24,14 +24,14 @@ covered during training".
 This meant building an app that could take input from a user in order to create, read, update and delete data in a database while also making this visible to the user via the app itself.
 
 #### **Minimum Requirements**
-- A Trello board (or equivalent Kanban board tech) with full expansion
-on user stories, use cases and tasks needed to complete the project. It could also provide a record of any issues or risks that you faced
-creating your project.
-- A relational database used to store data persistently for the project, this database needs to have at least 2 tables in it, to demonstrate your understanding, you are also required to model a relationship.
-- Clear Documentation from a design phase describing the architecture you will use for your project as well as a detailed Risk Assessment.
-- A functional CRUD application created in Python, following best practices and design principles, that meets the requirements set on your Kanban Board.
-- A functioning front-end website and integrated API's, using Flask.
-- Code fully integrated into a Version Control System using the Feature-Branch model which will subsequently be built through a CI server and deployed to a cloud-based virtual machine.
+- An Asana board (or equivalent Kanban board tech) with full expansion on tasks needed to complete the project.
+- This could also provide a record of any issues or risks that you faced creating your project.
+- An Application fully integrated using the Feature-Branch model into a Version Control System which will subsequently be built through a CI server and deployed to a cloud-based virtual machine.
+- If a change is made to a code base, then Webhooks should be used so that Jenkins recreates and redeploys the changed application
+- The project must follow the Service-oriented architecture that has been asked for.
+- The project must be deployed using containerisation and an orchestration tool.
+- As part of the project, you need to create an Ansible Playbook that will provision the environment that your application needs to run.
+- The project must make use of a reverse proxy to make your application accessible to the user.
 
 ### **Functionality**
 To satisfy the brief I designed an app that would allow users to create a list of collectibles that they owned.
