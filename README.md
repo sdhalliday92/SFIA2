@@ -1,120 +1,307 @@
-# **SFIA2 Project - Superhero Name Generator**
+# README - Superhero Name Generator
 
-## **Resources**
-- Trello - https://trello.com/b/KdnuhFZX/collectibles-week-5-project
-- Website - http://35.214.55.107
+For SFIA project 2  
 
-### **Contents**
-- Brief
-  * Minimum Requirements
-- Functionality
-- Data
-- Tech Stack
-- CI Pipeline
-- Front End Design
-- Risk Assessment
-- Difficulties
-- Future Improvements
-- Authors
+## Table of Contents
 
-### **Brief**
-The brief for this project was "To create a CRUD application with utilisation of supporting tools,
-methodologies and technologies that encapsulate all core modules
-covered during training".
-This meant building an app that could take input from a user in order to create, read, update and delete data in a database while also making this visible to the user via the app itself.
+Project Brief
+   * Proposal
 
-#### **Minimum Requirements**
-- An Asana board (or equivalent Kanban board tech) with full expansion on tasks needed to complete the project.
-- This could also provide a record of any issues or risks that you faced creating your project.
-- An Application fully integrated using the Feature-Branch model into a Version Control System which will subsequently be built through a CI server and deployed to a cloud-based virtual machine.
-- If a change is made to a code base, then Webhooks should be used so that Jenkins recreates and redeploys the changed application
-- The project must follow the Service-oriented architecture that has been asked for.
-- The project must be deployed using containerisation and an orchestration tool.
-- As part of the project, you need to create an Ansible Playbook that will provision the environment that your application needs to run.
-- The project must make use of a reverse proxy to make your application accessible to the user.
+Planning
+   * Initial Trello Board
+   * Sprint 1
+   * Sprint 1 Rolling Changes
+   * Sprint 1 (end) / Sprint 2 (Start)
+   * Sprint 2 Rolling Changes
+   * Sprint 2 (end)
+   * Issues during the 2 Sprints
 
-### **Functionality**
-To satisfy the brief I designed an app that would allow users to create a list of collectibles that they owned.
-The users stories that satisfied the brief were:
-- As a User, I would like to have a function that allows me to CREATE/ADD to the database.
-- As a User, I would like to have a function that allows me to READ the database.
-- As a User, I would like to have a function that allows me to UPDATE the database.
-- As a User, I would like to have a function that allows me to DELETE from the database.
+Risk Assessment
+   * Initial Risk Assessment and Matrix
+   * Final Updates to Risk Assessment and Matrix
 
-The below images show all the user stories created for this app as well as the layout and flow of the AGILE cycle that was implemented throughout.
+Project Architecture
+   * Entity Relationship Diagrams
+   * Docker Swarm / UI Architecture
+   * Deployment Pipeline
+   * Toolchain
 
-![Image of Trello](https://i.imgur.com/4OlAZsg.png)
+Final Application
 
-![Image of Trello2](https://i.imgur.com/Xb3JU74.png)
+Deployment
+   * Technology Used
+   * Installation Guide
+
+Retrospective
+   * What Went Well
+   * Future Improvements
+
+Author
 
 
-### **Data**
-It is important to outline what data will be included in the database and how it will all relate. The entity relationship diagram (ERD) below shows this.
+## Project Brief
 
-![Image of ERD](https://i.imgur.com/BpNspeC.png)
+The main goal of this project was to utilise a number of different technologies to deploy an application that met certain key requirements. These Key Requirements were:
 
-The ERD shows the relationship between the Collectibles and Users tables.
++ Using Python to Develop 4 Micro-Services with a RESTful architecture
++ Services 2, 3 and 4 should have dual implementations
++ The result of Service 4 should be stored in a MySQL Database
++ Docker should be used to containerise the 4 Micro-Services
++ Docker Swarm must be used to deploy the containers over a minimum of 2 nodes
++ Ansible must be used to configure the environment of the Nodes prior to the application being deployed
++ A CI/CD Pipeline using Jenkins will automate the entire process of Build/Test/Deploy
 
-### **Tech Stack**
-The below tech stack was implemented for this project.
-- GCP SQL Server
-- GCP Virtual Machine
-- Trello
-- Python
-- Flask
-- Git
-- Jenkins
+<a name="proposal"></a>
+### Proposal
 
-### **CI Pipeline**
-The below image shows the flow of the app and how the tech stack is used in the Continuous Integration (CI) Pipeline.
+My proposal was to create a Random Cryptocurrency to Fiat Currency Converter (e.g. Bitcoin to Euro). My inital proposal is to have 4 services as follows:
 
-![Image of CI Pipeline](https://i.imgur.com/XtTKaBB.png)
++ Service 1: This will be the front end of my application, and Flask will be used to create this. My database will store the resulting crypto/fiat/price pair that is generated from Service 4, in a MySQL Database on GCP. Only a single index.html page will be used to display the information. Options will be present on Service 1 to enable dual implementation for Services 2, 3 and 4.
 
-### **Front End Design**
-The front end design of the app is very basic and is made to be functional as shown in the wireframe below.
++ Service 2: Generates a random fiat currency to return to Service 4. The Fiat Currencies used in the application will be stored as csv files seperated into groups.
 
-![Image of Wireframe](https://i.imgur.com/MIkgumo.png)
++ Service 3: Generates a random crypto currency to return to Service 4. The Cryptocurrencys used in the application will be stored as csv files seperated into groups.
 
-The apps URL will take the user to the Home page.
++ Service 4: Returns to Service 1 a price based off of the fiat and crypto currency returned from Service 2 and 3. This services uses an External API to pull live market data provided by CryptoCompare. The mode of Service 4 e.g. (Crypto to Fiat or Fiat to Crypto conversion) is used to determine how to process the conversion using the External API. All Data is formatted and returned to Service 1.
 
-![Image of Home](https://i.imgur.com/JdERLlp.png)
+![An Initial Wireframe diagram of my Flask Application (Service 1) ](/images/webblock1.png)
 
-*About page.*
+Shown above is an initial Wireframe diagram of my Flask Application (Service 1)
 
-![Image of About](https://i.imgur.com/ISU68dN.png)
+<a name="planning"></a>
+## Planning
 
-*New users need to register.*
+<a name="initspr"></a>
+### Initial Trello Board
 
-![Image of Register](https://i.imgur.com/xFza8WI.png)
+Trello, a web-based Kanban board, was used to plan the project while implementing Agile methodology, such as specifying a product and sprint backlog. The project was to be split into 2 sprints 
 
-*Users can then use the login page.*
+I utilised MosCoW Prioritisation to give each requirement of the project an importance, so that I can use this to sort the order I should prioritise completing them in. I used a colour labelling method to do this and you can see an example of this below for my Initial Trello Board:
 
-![Image of Login](https://i.imgur.com/pmWHMzA.png)
+![Initial Trello Board ](/images/initTrel.png) ![Labels](/images/MoSCoWLabels.png)
 
-*Logged in users see their content on the home page.*
+<a name="spr1"></a>
+### Sprint 1 
 
-![Image of Logged In Home](https://i.imgur.com/nzK7ccy.png)
+The main aims in Sprint 1 were to create the 4 micro services and ensure they work together, as well as gain experience using Docker, Docker Swarm and Docker Swarm as early as possible so that the micro-services can be containerised. This is reflected in the Initial Sprint 1 board below:
 
-*Logged in users have access to My Account page.*
+![Initial Sprint 1 ](/images/initSP1Trel.png)
 
-![Image of My Account](https://i.imgur.com/HCkVsii.png)
+<a name="rolling1"></a>
+#### Rolling Changes During Sprint 1
 
-*Once logged in users can add collectibles to their list.*
++ Service 1 Constructed using Flask
++ Service 2 and 3 Randomly Generates Fiat / Crypto
++ Service 4 Successfully makes External API Call and returns data back to Service 1
++ CSV Files implemented for service 2 and 3 to avoid long lists in code
++ Dockerfiles created for each service to enable Containerisation
++ First Version of Application containerised using Docker and pushed to repo on Docker Hub
++ First Version of Application run using Docker Compose with updated Docker-Compose file
++ First version of Application runs on multiple VM's using Docker Swarm
++ Database Successfully integrated with 2 tables
++ 2nd Implementation Successfully Built for Service 2 (Now adds Fiat Region Functionality e.g. Europe, Oceania etc.)
++ 2nd Implementation Successfully Built for Service 3 (Now adds Crypto List Functionality e.g. Top 10, Top 50 etc.)
++ 2nd Implementation Successfully Built for Service 4 (Can now switch between cryp2fiat or fiat2cryp modes)
++ Latest Version of Application runs on multiple VM's using Docker Swarm
++ Exposed TCP/UDP Ports required for Docker Swarm, on GCP VM Instance Firewalls
++ All Docker images version controlled using Docker Hub
++ All work files version controlled using GitHub
 
-![Image of Add Collectible](https://i.imgur.com/WQTxwkn.png)
+<a name="spr1end"></a>
+### Sprint 1 (end) / Sprint 2 (start)
 
+All changes during Sprint 1 were explained above. The main aims in Sprint 2 were to create a Ansible Playbook to configure the VM's that would be used in the Swarm, build a Jenkins Pipeline to Build the compose file, conduct testing on the micro-services and deploy the application to multiple seperate VM's. Shown Below is the Trello Board by the Start of Sprint 2:
 
-### **Risk Assessment**
+![End Sprint 1 ](/images/endSP1Trel.png)
 
-![Image of Risk Assessment](https://i.imgur.com/6fieRm3.png)
+<a name="rolling2"></a>
+#### Rolling Changes During Sprint 2
 
-### **Difficulties**
-The main difficulties encountered were ones of my own making, pieces of code missing or references not answered.
-With my own incompetance aside other issues involved design. My initial designs for the appearance and operation of the app were far more difficult to employ than I anticipated. Things such as drop down menus and images were put aside and changed to allow easier functionality.
++ Nginx implemented as a container for Reverse Proxy
++ URL Tests written and tested locally using Docker-Compose
++ DB Tests written and tested locally using Docker-Compose
++ URL and DB Tests tested on multiple VM's using Docker-Swarm
++ Ansible Playbook written to install Docker on target VM's using inventory file and Tested
++ Ansible Playbook updated to also create Manager/Worker Nodes using inventory file and Tested
++ Ansible Playbook updated to also deploy Docker Swarm Stack Application and Tested
++ Jenkins Pipeline established on seperate Test VM with webhooks from Master branch of Github Repo
++ Jenkinsfile written as well as accompanying sh scripts
++ Jenkins CI/CD Pipeline Build/Test stages successful
++ App Relevant Secret Info + Ansible Files stored on Jenkins Test Server
++ Ansible File update to also copy files during deploy stage, to multiple VM's and deploy the Swarm Stack Application
++ Jenkins CI/CD Pipeline successfully built
++ All work files version controlled using GitHub
++ Webhooks created for Dockerhub Images
 
-### **Future Improvements**
-- To allow social media integration to allow the sharing of users lists
-- To improve the pages design, include images and more colour
+<a name="spr2end"></a>
+### Sprint 2 (end)
 
-### **Author**
+All changes during Sprint 2 were explained above. The Trello board by the end of the Final Sprint is show below:
+
+![End Sprint 2 ](/images/endSP2Trel.png)
+
+By the end of Sprint 2 the key requirements as well as some optional requirements were implemented. However All 'Could Have' labelled features were not implemented due to time constraints, however these would be considered in a future sprint. This will be discussed later in the README.
+
+<a name="sprissues"></a>
+#### Issues Faced During The 2 Sprints:
+
++ Issue passing parameters between services for dual implementation. Get requests using JSON learnt to implement basic requests
++ Had issues with setting up Docker Swarm as Worker Nodes could not pull down image. Fixed by Making Docker Repo Public
++ Had issue where exposing API key as well as DB info needed to be prevented. An Environment File was made and used to store the environment variables so that it can be used on multiple VM's
++ SSH keys are needed to be used for Ansible to execute all instruction in Playbook on other VM's. SSH keys were securely transferred to relevant folders as well as Jenkins Test VM
++ Multiple minor issues with Docker Swarm, however these were fixed by checking the logs of the service or container and identifying potential causes e.g. missing dependecy, Database not on etc
+
+<a name="risk"></a>
+## Risk Assessment
+
+<a name="initialrisk"></a>
+### Initial Risk Assessment and Matrix
+
+Shown below is the intial risk assessment and accompanying matrix for the project:
+
+![Initial RA](/images/initialrisk.png)
+
+![Initial Matrix](/images/initialmatrix.png)
+
+<a name="finalrisk"></a>
+### Final Updates to Risk Assessment and Matrix
+
+Shown below are additions to the risk assessment and matrix after completing the project and encountering a further number of issues:
+
+![Final RA](/images/finalrisk.png)
+
+![Final Matrix](/images/finalmatrix.png)
+
+<a name="Architecture"></a>
+## Project Architecture
+
+<a name="erd"></a>
+### Entity Relationships
+
+The initial ERD Diagram for my project is shown below. The database consists of a single table called currencylist, in which the pair and price returned to Service 1 is stored.
+
+![Initial ERD](/images/initialerd.png)
+
+The inital ERD was sufficient for a single implementation of Service 4, however to introduce a second implementaion a change to the ERD structure was required. The Main change came in adding a new table to store the results for the two different modes of operation - Crypto to Fiat and Fiat to Crypto, in 2 different tables. This is so that Price Column can have adjusted decimal parameters for storing the results.
+
+The Final ERD Diagram used therefore, is shown below:
+
+![Final ERD](/images/finalerd.png)
+
+<a name="dockerarch"></a>
+#### Docker Swarm / UI Architecture
+
+Shown Below is the Docker Swarm architecture for the application. The Swarm Architecture consists of 2 GCP VM Instances, in which one VM instance is configured to be a Manager Node, and the other a Worker Node. An Overlay network is used to deploy the swarm so that the applications can communicate with each other from different VM's. There are a total of 5 Docker Containers used. 4 Containers are for the actual developed service, while the 5th container is an Nginx Image, which is acting as a Reverse Proxy to forward port 80 web traffic to port 5000 of the Flask App and vice versa. Services 2, 3 and 4 are replicated twice, while Service 1 and Nginx are only Replicated once.
+
+![Docker Swarm Architecture Diagram](/images/swarmarch.png)
+
+<a name="deploypipe"></a>
+#### Deployment Pipeline
+
+The Pipeline used for deployment is represented as a diagram shown below. The Entire Pipeline utilises 3 GCP VM instances. 1 is used as the Jenkins Test Server, 1 is used for developing the application as well as being the Master node in the swarm, and a spare VN instance is utilised to act as a worker node. All VM instances have access to the GCP SQL Database so that the flask application can retrieve and store data wherever the container may be.
+
+![Deployment Pipeline](/images/deploypipe.png)
+
+<a name="toolchain"></a>
+#### Toolchain 
+
+The Toolchain Pipeline is shown below: 
+
+![Toolchain Pipeline](/images/Toolchain.png)
+
+<a name="finalapp"></a>
+## Final Application
+
+After Implementing all feature and building the Final Flask Micro-service, an updated Wireframe diagram was produced to show the evolution of the page during the project. The final wireframe includes features for a dual implementation, as well as introduces a read from the 2nd table. This is shown below:
+
+![Final Wireframe Diagram](/images/finalweb.png)
+
+The Final design of the website is shown below.
+
+![Screenshot of Final Webapp](/images/finalapp.png)
+
+<a name="Test"></a>
+## Testing
+
+<a name="pytest"></a>
+### Pytest
+
+Testing is composed of 2 parts, URL testing to ensure the site is up and running, and Database testing which mimics the entry of a pair into the database.
+
+In the URL Test, the local swarm is pinged and an assert of 200 is made which demonstrates the site is up and running, with a connection established.
+
+The Database Testing loop consists of the following, and is repeated for both tables in the database:
+
++ Test Data is inserted into the table and an assert is made to check number of records has increased by 1
++ Test Data is read from table and an assert is made to check the data read back is equivalent to the data to be inserted.
++ Test Data is updated with different values and an assert is made after reading the values back, to ensure they match the updated test data.
++ Test Data deleted and the table is reset to its original state before the tests were conducted. An assert is made to ensure the number of records has decreased by 1.
+
+The coverage report is shown below:
+
+![Coverage Report](/images/coverage.png)
+
+The coverage is 99% because none of the routes are being tested, the database functionality of the routes are being mimicked in the testing.py file
+
+<a name="Deployment"></a>
+## Deployment
+
+<a name="techused"></a>
+### Technology Used
+
++ 3 GCP VM Instances
++ 1 GCP SQL Server for storing Data
++ Jenkins Pipeline for CI/CD with Github Webhooks
++ Testing using Pytest
++ Ansible to configure the environment of deployment VM's
++ Docker to Containerise the application
++ Docker Swarm (and Compose) To run the Application across multiple VM's
++ Nginx as a reverse proxy
++ Docker Hub as a Version Control Service for Docker Images
++ GitHub as a Version Control Service for the Applications Code
+    + Feature Branch Model implemented - Master / Developer Branches
+    + Master Branch used to Build Docker Images automatically with Webhooks as well as Webhook with Jenkins
+    + Developer Branch used to write out code and fix bugs in application
+
+<a name="install"></a>
+### Installation Guide
+
+1. Setup 3 VM's on GCP with Ubuntu 18.04 LTS
+2. Setup SSH keys for the 3 VM's and store in a config file in a .ssh folder
+3. Install Jenkins on one GCP VM Instance to be used as a Jenkins Test Server. Expose TCP port 8080 in firewall rules
+4. Add Jenkins to sudoers group
+5. Setup Jenkins pipeline with Webhooks 
+6. Copy over .ssh folder to root of jenkins directory as well as Ansible Playbook + inventory and keys.env files to working directory in Jenkins for Pipeline. e.g. var/lib/jenkins/workspace/currencyswarm
+7. Add required Docker Swarm ports to Firewall Rules of all VM's: TCP 2376, 2377 and 7946, UDP 4789, and 7946.
+8. Request build on Jenkins Pipeline.
+9. Scripts should install all dependencies needed for Jenkins to run Swarm stack on Jenkins VM. Ansible Playbook will configure deployment VM's with software needed to ensure application Runs.
+
+<a name="retrospec"></a>
+## Retrospective
+
+<a name="wentwell"></a>
+### What Went Well
+
++ Project completed withing timeframe
++ All 'Must Have' Requirements Met
++ Docker, Ansible and Jenkins all Successfully Integrated into a continuous pipeline
++ Application deployed across multiple VM's
+
+<a name="futureimp"></a>
+### Future Improvements:
+
++ Implement Telegram API to enable Chatbot like Functionality
++ Implement Selenium for Front End Testing
++ Implement a 'percentage change' feature that show the percentage change of the price since the last time it appeared
++ Deploy application to more worker nodes
++ Incorporate a second manager node in Swarm to ensure System reliability
+
+A Trello Board was made to show what a future sprint could look like to implement these improvements, as shown below:
+
+![Future Kanban Board](/images/futuresprint.png)
+
+<a name="auth"></a>
+## Author
+
 Scott Halliday
+
