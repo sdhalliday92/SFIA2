@@ -23,7 +23,6 @@ QA SFIA2 Project
 The main goal of this project was to utilise a number of different technologies to deploy an application that met certain key requirements. These Key Requirements were:
 
 + Using Python to Develop 4 Micro-Services with a RESTful architecture
-+ Services 2, 3 and 4 should have dual implementations
 + The result of Service 4 should be stored in a MySQL Database
 + Docker should be used to containerise the 4 Micro-Services
 + Docker Swarm must be used to deploy the containers over a minimum of 2 nodes
